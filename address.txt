@@ -1,0 +1,1 @@
+https://guestwifi.fccps.org/fs/customwebauth/login.html?switch_url=https://guestwifi.fccps.org/login.html&ap_mac=c0:25:5c:49:4b:20&client_mac=d4:61:9d:25:2a:f6&wlan=FCCPS-Guest&redirect=guestwifi.fccps.org/

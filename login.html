@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Pragma" content="no-cache">
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<title>FCCPS - Guest WiFi Login</title>
+<script>
+
+function submitAction(){
+      var link = document.location.href;
+      var searchString = "redirect=";
+      var equalIndex = link.indexOf(searchString);
+      var redirectUrl = "";
+
+      if (document.forms[0].action == "") {
+      var url = window.location.href;
+      var args = new Object();
+      var query = location.search.substring(1);
+      var pairs = query.split("&");
+          for(var i=0;i<pairs.length;i++){
+              var pos = pairs[i].indexOf('=');
+              if(pos == -1) continue;
+              var argname = pairs[i].substring(0,pos);
+              var value = pairs[i].substring(pos+1);
+              args[argname] = unescape(value);
+          }
+          document.forms[0].action = args.switch_url;       
+      }       
+      if(equalIndex >= 0) {
+            equalIndex += searchString.length;
+            redirectUrl = "";
+            redirectUrl += link.substring(equalIndex);
+      }
+      if(redirectUrl.length > 255)
+      redirectUrl = redirectUrl.substring(0,255);
+      document.forms[0].redirect_url.value = redirectUrl;
+      document.forms[0].buttonClicked.value = 4;
+      document.forms[0].submit();
+}
+
+function reject()
+{
+	alert("You will not be able to access the system!");
+}
+
+
+function loadAction(){
+      var url = window.location.href;
+      var args = new Object();
+      var query = location.search.substring(1);
+      var pairs = query.split("&");
+      for(var i=0;i<pairs.length;i++){
+          var pos = pairs[i].indexOf('=');
+          if(pos == -1) continue;
+          var argname = pairs[i].substring(0,pos);
+          var value = pairs[i].substring(pos+1);
+          args[argname] = unescape(value);
+      }
+      document.forms[0].action = args.switch_url;
+
+}
+
+</script>
+</head>
+
+<body align="center" bgcolor=#2980B9 topmargin="50" marginheight="50" onload="loadAction();"> <form method="post"> <input TYPE="hidden" NAME="buttonClicked" SIZE="16" MAXLENGTH="15" value="0"> <input TYPE="hidden" NAME="redirect_url" SIZE="255" MAXLENGTH="255" VALUE=""> <input TYPE="hidden" NAME="err_flag" SIZE="16" MAXLENGTH="15" value="0">
+
+<table border="0" cellspacing="0" cellpadding="0" align="center">
+
+<h1 align=center><font color="white">Welcome to FCCPS Guest Access Portal</font></h1>
+<iframe align="center" style="background-color: snow;" src="./aup.html" width="800" height="500" scrolling="auto"></iframe>
+<p><input type="button" style="background-color:#1F9236; color: white; text-align: center; font-size : 64px; height:100px; width:350px" name="Submit" value="I Accept" class="button" onclick="submitAction();">
+<input type="button" style="background-color:#FF0000; color: white; text-align: center; font-size : 64px; height:100px; width:350px" name="Reject" value="Reject" class="button" onclick="reject();"></p>
+<IMG SRC="./yourlogo.jpg">
+</td>
+</tr>
+</table>
+</div>
+
+</form>
+</body>
+</html>
