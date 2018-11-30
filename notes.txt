@@ -7,3 +7,8 @@ loadAction: most of this function is devoted to turning the URL parameters into 
 submitAction: this function just extracts the redirect URL from the current page URL. It actually fully duplicates loadAction in one place. They could have just called that function... or even omitted it entirely... oh well.
 
 reject: just opens a popup. Not important.
+
+The important bit is at the bottom of submitAction, where the property buttonClicked of the form is set to 4. I don't know what 4 would be, other than perhaps a convenient number to use for bit logic?
+I doubt the redirect_url input (heh, they mixed camel case with underscores) will be very important, but probably a good idea to send along that parameter in a POST request. Same thing with err_flag, which isn't mentioned anywhere else, but should probably be sent as the default zero to let the server know that there's no issue.
+
+I can probably just use the Python requests package to send a nice dictionary at the normal calculated URL. I'll test this when I get back to school on Monday.

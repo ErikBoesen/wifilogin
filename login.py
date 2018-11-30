@@ -1,4 +1,5 @@
 import requests
+# TODO: auto-detect target URL? Could try sending a request to a known page and seeing what we get back?
 # TODO: Do we need to include mac address parameters etc.?
 TARGET_URL = 'https://guestwifi.fccps.org/login.html'
 
