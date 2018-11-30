@@ -1,0 +1,9 @@
+The main page appears to be a very simple HTML page with inline JavaScript and all styling done via HTML (ew).
+The various legal agreements are shown through an iframe sourcing a file "aup.html" which has no apparent role in the login process and can be safely ignored. The file yourlogo.png also isn't useful for obvious reasons.
+The only interesting part of the initially loaded page is the JavaScript code embedded directly in the HTML. loadAction, submitAction, and reject functions are run through onclick listeners (for buttons, which trigger the submitAction and reject functions) and onload property on the body for the loadAction function.
+
+loadAction: most of this function is devoted to turning the URL parameters into a dictionary, after which the main form's action property is set to the current page's URL without parameters. This is  probably just a way that this page adapts to being used by different schools since not all will be using the domain guestwifi.fccps.org.
+
+submitAction: this function just extracts the redirect URL from the current page URL. It actually fully duplicates loadAction in one place. They could have just called that function... or even omitted it entirely... oh well.
+
+reject: just opens a popup. Not important.
